@@ -19,7 +19,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
 RUN python3 -m venv /opt/patroni-venv && \
     /opt/patroni-venv/bin/pip install --upgrade pip && \
-    /opt/patroni-venv/bin/pip install psycopg2-binary six psutil "patroni[kubernetes]==${PATRONI_VERSION}"
+    /opt/patroni-venv/bin/pip install psycopg2-binary six psutil cdiff "patroni[kubernetes]==${PATRONI_VERSION}"
 
 RUN mkdir -p ${PGHOME} && \
     sed -i "s|/var/lib/postgresql.*|${PGHOME}:/bin/bash|" /etc/passwd && \
